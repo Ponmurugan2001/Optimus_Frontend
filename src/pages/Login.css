@@ -1,0 +1,6 @@
+.authentication {
+    background-image: url('back.jpg'); /* Replace '/path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover; /* This property ensures the image covers the entire background */
+    background-position: center; /* This property centers the image */
+    /* Add any other styles you want */
+}
