@@ -5,6 +5,7 @@ import { Col, Row } from "antd";
 import Doctor from "../components/Doctor";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/alertsSlice";
+import "./scan.css"
 
 function Home() {
   const [doctors, setDoctors] = useState([]);
@@ -81,16 +82,17 @@ function Home() {
   };
 
   const handleChooseFolderClick = () => {
+    
     const input = document.createElement('input');
+    
     input.type = 'file';
     input.directory = true;
     input.multiple = false;
     input.webkitdirectory = true;
+    setFolderPath("new")
     input.addEventListener('change', (event) => {
       const files = event.target.files;
-      if (files.length > 0) {
-        setFolderPath(files[0].path);
-      }
+   
     });
     input.click();
   };
@@ -111,26 +113,25 @@ function Home() {
 
   return (
     <Layout>
-      <Row gutter={20}>
-        {doctors.map((doctor) => (
-          <Col span={8} xs={24} sm={24} lg={8}>
-            <Doctor doctor={doctor} />
-          </Col>
-        ))}
-      </Row>
-      {!folderPath && <button onClick={handleChooseFolderClick}>Choose Folder</button>}
-      {!folderPath && <button onClick={handleDetectPupil}>Detect Pupil</button>}
-      {!webcamAccessed && <button onClick={handleScanButtonClick}>Scan</button>}
-      {webcamAccessed && !recording &&
-        <div style={{ width: '100%', height: '300px', border: '1px solid #ccc', position: 'relative' }}>
+      {!folderPath && (
+        <button className="big-button" onClick={handleChooseFolderClick}>Choose image from folder</button>
+      )}
+      {folderPath && (
+        <button className="big-button" onClick={handleDetectPupil}>Detect Pupil</button>
+      )}
+      {!webcamAccessed && (
+        <button className="big-button" onClick={handleScanButtonClick}>Scan</button>
+      )}
+      {webcamAccessed && !recording && (
+        <div className="video-container">
           <video
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            className="video"
             autoPlay
             ref={(videoElement) => { if (videoElement) videoElement.srcObject = videoStream; }}
           />
-          <button onClick={handleStartRecording} style={{ position: 'absolute', bottom: '10px', left: '10px' }}>Start Recording</button>
+          <button className="record-button" onClick={handleStartRecording}>Start Recording</button>
         </div>
-      }
+      )}
       {recording && <p>Recording...</p>}
       {detectionResult && (
         <div>

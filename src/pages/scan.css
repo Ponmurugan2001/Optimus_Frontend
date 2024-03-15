@@ -1,0 +1,33 @@
+.big-button {
+    display: block;
+
+    width: 300px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    margin: 25px; /* Centers the button horizontally */
+    font-size: 18px; /* Adjust the font size as needed */
+    background-color: #005555;  /* Green background color */
+    color: #ffffff; /* White text color */
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .record-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    font-size: 16px; /* Adjust the font size as needed */
+    background-color: #005555;
+    ; /* Green background color */
+    color: #ffffff; /* White text color */
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .record-button:hover,
+  .big-button:hover {
+    background-color: #005555; /* Darker shade of green on hover */
+  }
+  

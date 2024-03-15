@@ -22,10 +22,15 @@ function Layout({ children }) {
       icon: "ri-file-list-line",
     },
     {
-      name: "Apply Doctor",
-      path: "/apply-doctor",
-      icon: "ri-hospital-line",
-    }
+      name: "Analytics",
+      path: "/analytics",
+      icon: "ri-bar-chart-box-line",
+    },
+    // {
+    //   name: "Apply Doctor",
+    //   path: "/apply-doctor",
+    //   icon: "ri-hospital-line",
+    // }
   ];
 
   const doctorMenu = [
